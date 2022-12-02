@@ -1,0 +1,27 @@
+<div class="pages-content">
+    <app-toolbar></app-toolbar>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Materia</th>
+            <th scope="col">Profesor</th>
+            <th scope="col">Calificación</th>
+            <th scope="col">status</th>
+            <th scope="col">...</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr [ngClass]="materia.status ? 'table-success' : 'table-danger' " *ngFor = "let materia of ListaMaterias">
+            <th scope="row">{{materia.id}}</th>
+            <td>{{materia.nombreMateria | uppercase}}</td>
+            <td>{{materia.nombreProfesor}}</td>
+            <td>{{materia.calificacion | number:'1.2-2'  }}</td>
+            <td>{{materia.status ? 'Aprovado': 'Reprobado'}}</td>
+            <td><button (click)="materia.changeStatus()" class="btn btn-success">X</button></td>
+          </tr>
+     
+        </tbody>
+      </table>
+</div>
